@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>AngularJS & Firebase Web App</title>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+
+
+</head>
+
+<body ng-controller="HomeCtrl">
+
+<div class="container">
+
+    <div class="col-12">
+        Enter To Do name :
+        <input class="form-control" type="text" ng-model="to_do_name"/>
+        <br>
+        <span>
+            <button class="btn btn-success" ng-click="add_item()">Add</button>
+        </span>
+    </div>
+    <br>
+    <div class="col-12">
+        <table class="table">
+            <tr>
+                <td>Name</td>
+                <td>Done</td>
+                <td>Delete</td>
+                <td>Update</td>
+            </tr>
+
+
+            <tr ng-repeat="key in todo_list">
+                <td> {{ key.name }} </td>
+                <td> {{ key.done ? 'done' : 'not done' }} </td>
+                <td><button class="btn btn-danger" ng-click="delete_item(key)">Delete</button></td>
+                <td><button class="btn btn-warning" ng-click="edit_item(key)">Update</button></td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>
